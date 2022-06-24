@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Input from '$lib/components/input.svelte';
 	import { onDestroy, onMount } from 'svelte';
   import { browser } from '$app/env';
 
@@ -23,21 +24,28 @@
       if (item.kind !== 'file' || !item.type.startsWith('image')) continue;
       images = [
         ...images,
-        await getImage(item),
+        await getImage(item.getAsFile() as File),
       ]
     }
   }
 
-  const getImage = async (item: DataTransferItem): Promise<Image> => {
-    const file = item.getAsFile() as File;
-    return {
-      lastModified: new Date(file.lastModified),
-      name: file.name,
-      type: file.type,
-      src: URL.createObjectURL(file),
-      data: await file.arrayBuffer(),
+  const filesSelected = async (payload: CustomEvent) => {
+    const files: FileList = payload.detail;
+    for (let i = 0; i < files?.length; i += 1) {
+      images = [
+        ...images,
+        await getImage(files[i]),
+      ]
     }
   }
+
+  const getImage = async (file: File): Promise<Image> => ({
+    lastModified: new Date(file.lastModified),
+    name: file.name,
+    type: file.type,
+    src: URL.createObjectURL(file),
+    data: await file.arrayBuffer(),
+  });
 
 	onMount(() => {
 		if (browser) document.addEventListener('paste', clipboardEvent);
@@ -49,7 +57,7 @@
 
 <tempalte>
   {#if images.length === 0}
-    no images
+    <Input on:filesSelected={filesSelected} />
   {:else}
     {#each images as image}
       <img src={image.src} alt="">
