@@ -1,6 +1,6 @@
-<tempalte>
+<div id="app">
 	<slot />
-</tempalte>
+</div>
 
 <style lang="scss" global>
 	@use 'src/lib/scss';
