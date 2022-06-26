@@ -1,0 +1,27 @@
+@use 'breakpoints' as *;
+
+@mixin mq($key) {
+  @if $key == 'max' {
+    @content;
+  }
+  @else {
+    $size: map-get($breakpoints, $key);
+    @media only screen and (max-width: $size) {
+      @content;
+    }
+  }
+}
+
+@mixin pseudo($loc: before, $content: '', $pos: absolute, $top: 0, $bottom: 0, $left: 0, $right: 0) {
+  position: relative;
+
+  &::#{$loc} {
+    content: $content;
+    position: $pos;
+    top: $top;
+    bottom: $bottom;
+    left: $left;
+    right: $right;
+    @content;
+  }
+}

@@ -1,0 +1,47 @@
+@use '../abstracts' as *;
+@use "sass:color";
+@use "sass:list";
+@use "sass:string";
+@use "sass:math";
+@use "sass:map";
+
+:root {
+  --section-spacing: 3.5rem;
+  --wrapper-padding: 1rem;
+  --max-width: 940px;
+  --border-width: 2px;
+  --border-radius: .5rem;
+  --base-size: .5rem;
+  --transition-time: 250ms;
+  color-scheme: dark;
+
+  @include mq(small) {
+    --section-spacing: 6rem;
+  }
+
+  @each $color-length,
+  $name,
+  $hue,
+  $saturation in $colors {
+
+    $steps: math.div(1000, $color-length);
+
+    @for $i from 0 to $color-length {
+      $lightness: $i * math.div(100, ($color-length - 1));
+      $step: string.slice("00#{$i * $steps}", -3);
+      --clr-#{$name}-#{$step}: #{hsl($hue, $saturation * 1%, $lightness * 1%)};
+    }
+  }
+
+  
+  @each $var in map.keys($sizes) {
+    @include mq($var) {
+      $type-size-ratio: map.get($type-ratios, map.get($sizes, $var));
+      $level-size: 1rem;
+      @for $i from 0 to 7 {
+        --fs-#{6 - $i}00: #{$level-size};
+        $level-size: $level-size * $type-size-ratio;
+      }
+    }
+  }
+}
