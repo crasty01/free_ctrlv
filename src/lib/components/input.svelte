@@ -34,6 +34,6 @@
 		display: flex;
     padding: 1rem;
     min-width: 6rem;
-    
+    border: var(--border-width) dashed var(--clr-light-950);
 	}
 </style>
