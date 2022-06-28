@@ -9,10 +9,14 @@
 		dispatch('filesSelected', files);
 	};
 
+	const onKeyPress = (payload: KeyboardEvent) => {
+		if (payload.code === 'Enter') input.click();
+	}
+
 	const id = crypto.randomUUID();
 </script>
 
-<label class="upload" for={id}>
+<label class="upload" for={id} tabindex="0" on:keyup={onKeyPress}>
 	<span>drag, click or paste</span>
 	<input
 		class="input"
@@ -30,9 +34,10 @@
 		display: none;
 	}
 	.upload {
-		display: flex;
+		display: grid;
 		flex-direction: column;
 		align-items: center;
+		place-content: center;
 		width: 100%;
 		height: 100%;
 		min-width: 6rem;

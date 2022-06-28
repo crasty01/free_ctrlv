@@ -4,9 +4,7 @@
 			<span>paste</span><span class="subheading">.io</span>
 		</h1>
 	</header>
-	<main class="main">
-		<slot />
-	</main>
+	<slot />
 	<footer class="footer">
 		<div class="footer__author">
 			<a class="button" href="https://danielvondra.tk">&copy; crasty</a>
