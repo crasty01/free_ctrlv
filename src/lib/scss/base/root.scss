@@ -11,6 +11,8 @@
   --border-radius: .5rem;
   --base-size: .5rem;
   --transition-time: 250ms;
+  --ff-normal: 'JetBrains Mono', monospace;
+  --ff-heading: 'Raleway', sans-serif;
   color-scheme: dark;
 
   @each $color-length,

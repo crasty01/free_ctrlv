@@ -9,7 +9,7 @@
 		dispatch('filesSelected', files);
 	};
 
-	const id = crypto.randomUUID(); 
+	const id = crypto.randomUUID();
 </script>
 
 <label class="upload" for={id}>
