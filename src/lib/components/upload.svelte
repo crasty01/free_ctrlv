@@ -38,7 +38,7 @@
 		name: file.name,
 		type: file.type,
 		src: URL.createObjectURL(file),
-		data: await file.arrayBuffer()
+		data: await file.arrayBuffer(),
 	});
 
 	onMount(() => {

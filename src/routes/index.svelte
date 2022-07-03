@@ -3,6 +3,11 @@
   let images: Array<Image> = [];
   $: if (images.length > 0) console.log(images);
 
+  const clear = () => {
+    images.forEach(image => URL.revokeObjectURL(image.src));
+    images = [];
+  }
+
   const upload = async () => {
     const data = new FormData();
     
@@ -21,7 +26,7 @@
 
 <main class="main">
   <div class="blank">
-    <button on:click={() => images = []}>clear</button>
+    <button on:click={clear}>clear</button>
     <button on:click={upload}>upload</button>
   </div>
   <div class="center">
