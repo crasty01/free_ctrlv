@@ -1,12 +1,11 @@
 import type { RequestHandler } from "@sveltejs/kit";
 
 interface Params extends Record<string, string> {
-  ping: string;
+  [key: string]: string;
 }
 
 interface Output {
   pong: boolean;
-  recieved: string;
 }
 
 export const get: RequestHandler<Params, Output> = async ({ params }) => {
@@ -14,7 +13,6 @@ export const get: RequestHandler<Params, Output> = async ({ params }) => {
     status: 200,
     headers: {},
     body: {
-      recieved: params.ping,
       pong: true,
     },
   }
