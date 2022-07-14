@@ -8,8 +8,7 @@
 :root {
   --max-width: 940px;
   --border-width: 2px;
-  --border-radius: .5rem;
-  --base-size: .5rem;
+  --border-radius: .25rem;
   --transition-time: 250ms;
   --ff-normal: 'JetBrains Mono', monospace;
   --ff-heading: 'Raleway', sans-serif;
@@ -29,11 +28,12 @@
     }
   }
 
-  
+
   @each $var in map.keys($sizes) {
     @include mq($var) {
       $type-size-ratio: map.get($type-ratios, map.get($sizes, $var));
       $level-size: 1rem;
+
       @for $i from 0 to 7 {
         --fs-#{6 - $i}00: #{$level-size};
         $level-size: $level-size * $type-size-ratio;
