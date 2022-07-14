@@ -11,7 +11,7 @@
 
 	const onKeyPress = (payload: KeyboardEvent) => {
 		if (payload.code === 'Enter') input.click();
-	}
+	};
 
 	const id = crypto.randomUUID();
 </script>
@@ -43,7 +43,7 @@
 		min-width: 6rem;
 		padding-block: 0.5rem;
 		padding-inline: 2rem;
-		border: var(--border-width) dashed var(--clr-light-950);
+		border: var(--border-width) dashed var(--clr-neutral-950);
 		border-radius: var(--border-radius);
 		cursor: pointer;
 	}

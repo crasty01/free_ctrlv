@@ -1,39 +1,37 @@
-
-
 body {
-  background-color: var(--clr-dark-000);
-  color: var(--clr-light-900);
+  background-color: var(--clr-neutral-000);
+  color: var(--clr-neutral-975);
 
   .lightmode & {
-    background-color: var(--clr-light-900);
-    color: var(--clr-dark-000);
+    background-color: var(--clr-neutral-975);
+    color: var(--clr-neutral-000);
   }
 }
 
 ::-moz-selection {
-  color: var(--clr-dark-100);
-  background-color: var(--clr-accent-800);
+  color: var(--clr-neutral-000);
+  background-color: var(--clr-accent-850);
 }
 
 ::selection {
-  color: var(--clr-dark-100);
-  background-color: var(--clr-accent-800);
+  color: var(--clr-neutral-000);
+  background-color: var(--clr-accent-850);
 }
 
 // SCROLLBAR ----------------------------------
 
 /* width */
 ::-webkit-scrollbar {
-  width: calc(var(--base-size) * 1);
+  width: 1rem;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: var(--clr-dark-100);
+  background: var(--clr-neutral-100);
   border-radius: var(--border-width);
 
   .lightmode & {
-    background: var(--clr-light-700);
+    background: var(--clr-neutral-700);
   }
 }
 

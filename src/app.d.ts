@@ -8,3 +8,6 @@ declare namespace App {
 	// interface Session {}
 	// interface Stuff {}
 }
+
+type AbsoluteUnit = | 'px' | 'cm' | 'mm' | 'in' | 'pt' | 'pc';
+type RelativeUnit = | 'em' | 'ex' | 'ch' | 'rem' | 'vw' | 'vh' | 'vmin' | 'vmax' | '%';
