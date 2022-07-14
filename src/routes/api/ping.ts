@@ -1,28 +1,21 @@
-import type { RequestEvent, RequestHandler } from "@sveltejs/kit";
+import type { RequestHandler } from "@sveltejs/kit";
 
-interface Params {
-  [key: string]: any;
-};
-interface OutputBody {
-  [key: string]: any;
-  data: 'pong';
-};
-interface InputBody {
-  [key: string]: any;
-};
-
-export const post: RequestHandler<InputBody, OutputBody> = async (_event: RequestEvent<Params>) => {
-	return {
-		body: {
-      data: "pong",
-    },
-	}
+interface Params extends Record<string, string> {
+  ping: string;
 }
 
-export const get: RequestHandler<InputBody, OutputBody> = async (_event: RequestEvent<Params>) => {
-	return {
-		body: {
-      data: "pong",
+interface Output {
+  pong: boolean;
+  recieved: string;
+}
+
+export const get: RequestHandler<Params, Output> = async ({ params }) => {
+  return {
+    status: 200,
+    headers: {},
+    body: {
+      recieved: params.ping,
+      pong: true,
     },
-	}
+  }
 }
