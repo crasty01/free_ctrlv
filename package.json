@@ -1,11 +1,11 @@
 {
-	"name": "freectrlv",
+	"name": "sveltekit-test",
 	"version": "0.0.1",
 	"scripts": {
-		"dev": "env-cmd svelte-kit dev",
-		"build": "env-cmd svelte-kit build",
+		"dev": "env-cmd vite dev",
+		"build": "env-cmd vite build",
 		"package": "svelte-kit package",
-		"preview": "env-cmd svelte-kit preview",
+		"preview": "env-cmd vite preview",
 		"prepare": "svelte-kit sync",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
@@ -28,7 +28,8 @@
 		"svelte-check": "^2.7.1",
 		"svelte-preprocess": "^4.10.6",
 		"tslib": "^2.3.1",
-		"typescript": "^4.7.2"
+		"typescript": "^4.7.4",
+		"vite": "^2.9.13"
 	},
 	"type": "module",
 	"dependencies": {
